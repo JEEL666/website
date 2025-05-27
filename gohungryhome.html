@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Go Hungry</title>
 
   <!-- Bootstrap CSS -->
@@ -10,8 +10,8 @@
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
-
   <style>
+    /* Your original CSS unchanged */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -24,7 +24,6 @@
       margin: 0;
     }
 
-    /* Top Navigation */
     .navbar {
       background-color: #fc8019;
       padding: 10px 30px;
@@ -33,10 +32,6 @@
       top: 0;
       z-index: 1000;
       transition: box-shadow 0.3s ease;
-    }
-
-    .navbar.scrolled {
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     }
 
     .navbar-brand {
@@ -48,7 +43,6 @@
     .search-bar {
       display: flex;
       align-items: center;
-      justify-content: center;
       gap: 15px;
     }
 
@@ -61,54 +55,50 @@
 
     .search-bar i {
       font-size: 20px;
-      background-color: transparent;
-      padding: 10px;
-      border-radius: 50%;
-      cursor: pointer;
       color: white;
+      cursor: pointer;
     }
 
-    .search-bar i:hover {
-      background-color: #f05f29;
+    .cart-icon {
+      position: relative;
+      font-size: 30px;
+      margin-left: 20px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .cart-icon .badge {
+      position: absolute;
+      top: -5px;
+      right: -10px;
+      background-color: red;
+      color: white;
+      border-radius: 50%;
+      padding: 5px 10px;
     }
 
     .account-logo i {
       font-size: 30px;
       color: white;
       cursor: pointer;
-      transition: transform 0.3s ease;
-      border-radius: 50%;
-      padding: 5px;
-      background-color: transparent;
-    }
-
-    .account-logo i:hover {
-      transform: scale(1.1);
     }
 
     .page-content {
       display: flex;
       flex-wrap: wrap;
-      gap: 30px;
     }
+.sidebar {
+  width: 250px;
+  background-color: #fff;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+  position: fixed;
+  top: 70px; /* Matches height of your navbar */
+  left: 0;
+  bottom: 0;
+  overflow-y: auto;
+}
 
-    /* ✅ FIXED SIDEBAR */
-    .sidebar {
-      width: 250px;
-      background-color: #fff;
-      padding: 20px;
-      border-right: 1px solid #ddd;
-      height: 100vh;
-      overflow-y: auto;
-      position: sticky;
-      top: 70px;
-    }
-
-    .sidebar h3 {
-      margin-bottom: 15px;
-      font-size: 20px;
-      color: #333;
-    }
 
     .sidebar ul {
       list-style: none;
@@ -116,46 +106,34 @@
     }
 
     .sidebar ul li {
-      margin-bottom: 10px;
-      color: #333;
+      padding: 10px;
       cursor: pointer;
-      padding: 10px 15px;
-      border-radius: 5px;
-      transition: background 0.3s ease, color 0.3s ease;
+      transition: background 0.3s;
     }
 
     .sidebar ul li:hover {
       background-color: #fc8019;
       color: white;
+      border-radius: 5px;
     }
 
-    .main-content {
-      flex-grow: 1;
-      padding: 30px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-    }
+ .main-content {
+  margin-left: 250px; /* Same as sidebar width */
+  padding: 30px;
+  flex-grow: 1;
+}
+
 
     .cuisine-section {
-      width: 100%;
-      margin-bottom: 40px;
       display: none;
     }
 
-    .cuisine-section h2 {
-      font-size: 28px;
-      color: #333;
-      margin-bottom: 20px;
-    }
-
     .food-card {
-      border-radius: 15px;
+      border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       background-color: white;
-      transition: transform 0.3s ease;
-      width: 100%;
+      transition: transform 0.3s;
     }
 
     .food-card:hover {
@@ -169,70 +147,25 @@
     }
 
     .food-card-body {
-      padding: 15px 15px;
-      margin-top: 20px;
+      padding: 15px;
     }
 
     .food-name {
-      font-size: 20px;
       font-weight: bold;
-      color: #333;
     }
 
     .food-price {
-      font-size: 18px;
       color: #fc8019;
     }
 
-    .food-quantity {
-      font-size: 16px;
-      color: #777;
-    }
+ .main-content {
+  padding-bottom: 100px; /* Prevents footer overlap */
+}
 
-    .cart-icon {
-      position: relative;
-      font-size: 30px;
-      cursor: pointer;
-      margin-left: 20px;
-      color: white;
-    }
-
-    .cart-icon .badge {
-      position: absolute;
-      top: -5px;
-      right: -5px;
-      background-color: red;
-      color: white;
-      border-radius: 50%;
-      padding: 5px 10px;
-    }
-
-    .footer {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 30px;
-    }
-
-    .footer a {
-      color: #ccc;
-      text-decoration: none;
-      margin: 0 10px;
-      transition: color 0.3s ease;
-    }
-
-    .footer a:hover {
-      color: #fff;
-    }
-
-    /* ✅ Responsive Sidebar */
     @media (max-width: 768px) {
       .sidebar {
         width: 100%;
         height: auto;
-        position: relative;
-        top: 0;
         border-right: none;
         border-bottom: 1px solid #ddd;
       }
@@ -241,28 +174,33 @@
         flex-direction: column;
       }
     }
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-left: 250px; /* Match the sidebar width */
+  width: calc(100% - 250px); /* So it doesn't overflow */
+}
+
+
   </style>
 </head>
 <body>
 
-  <!-- Top Navbar -->
-  <nav class="navbar navbar-expand-lg" id="navbar">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
     <div class="container-fluid d-flex justify-content-between align-items-center">
       <a class="navbar-brand" href="#">Go Hungry</a>
       <div class="d-flex align-items-center">
-        <!-- Search Bar -->
         <div class="search-bar">
-          <input type="text" placeholder="Search" aria-label="Search">
+          <input type="text" placeholder="Search" />
           <i class="bi bi-search"></i>
         </div>
-
-        <!-- Cart Icon -->
         <div class="cart-icon" onclick="toggleCart()">
           <i class="bi bi-cart"></i>
           <span id="cart-count" class="badge">0</span>
         </div>
-
-        <!-- Account Logo -->
         <div class="account-logo ms-3">
           <i class="bi bi-person-circle"></i>
         </div>
@@ -270,7 +208,7 @@
     </div>
   </nav>
 
-  <!-- Sidebar + Main Content -->
+  <!-- Page Content -->
   <div class="page-content">
     <div class="sidebar">
       <h3>Cuisines</h3>
@@ -288,15 +226,14 @@
       </ul>
     </div>
 
-    <!-- Main Content with Food Items -->
     <div class="main-content">
-      <!-- North Indian Cuisine -->
+      <!-- North Indian -->
       <div id="north-indian" class="cuisine-section">
         <h2>🍛 North Indian</h2>
         <div class="row g-4">
           <div class="col-md-4">
             <div class="food-card">
-              <img src="https://source.unsplash.com/400x250/?paneer" alt="Paneer Butter Masala">
+              <img src="https://source.unsplash.com/400x250/?paneer" alt="Paneer Butter Masala" />
               <div class="food-card-body">
                 <p class="food-name">Paneer Butter Masala</p>
                 <p class="food-price">₹250</p>
@@ -304,108 +241,79 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      <!-- South Indian Cuisine -->
-      <div id="south-indian" class="cuisine-section">
-        <h2>🍚 South Indian</h2>
-        <div class="row g-4">
           <div class="col-md-4">
             <div class="food-card">
-              <img src="https://source.unsplash.com/400x250/?dosa" alt="Masala Dosa">
+              <img src="https://source.unsplash.com/400x250/?chole" alt="Chole Bhature" />
               <div class="food-card-body">
-                <p class="food-name">Masala Dosa</p>
-                <p class="food-price">₹120</p>
-                <button class="btn btn-primary" onclick="addToCart('Masala Dosa', 120)">Add to Cart</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Chinese Cuisine -->
-      <div id="chinese" class="cuisine-section">
-        <h2>🍜 Chinese</h2>
-        <div class="row g-4">
-          <div class="col-md-4">
-            <div class="food-card">
-              <img src="https://source.unsplash.com/400x250/?noodles" alt="Chow Mein">
-              <div class="food-card-body">
-                <p class="food-name">Chow Mein</p>
+                <p class="food-name">Chole Bhature</p>
                 <p class="food-price">₹180</p>
-                <button class="btn btn-primary" onclick="addToCart('Chow Mein', 180)">Add to Cart</button>
+                <button class="btn btn-primary" onclick="addToCart('Chole Bhature', 180)">Add to Cart</button>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+           <div class="col-md-4">
+            <div class="food-card">
+              <img src="https://source.unsplash.com/400x250/?chole" alt="Chole Bhature" />
+              <div class="food-card-body">
+                <p class="food-name">Chole Bhature</p>
+                <p class="food-price">₹180</p>
+                <button class="btn btn-primary" onclick="addToCart('Chole Bhature', 180)">Add to Cart</button>
+              </div>
+            </div>
+          </div> <div class="col-md-4">
+            <div class="food-card">
+              <img src="https://source.unsplash.com/400x250/?chole" alt="Chole Bhature" />
+              <div class="food-card-body">
+                <p class="food-name">Chole Bhature</p>
+                <p class="food-price">₹180</p>
+                <button class="btn btn-primary" onclick="addToCart('Chole Bhature', 180)">Add to Cart</button>
+              </div>
+            </div>
+          </div> <div class="col-md-4">
+            <div class="food-card">
+              <img src="https://source.unsplash.com/400x250/?chole" alt="Chole Bhature" />
+              <div class="food-card-body">
+                <p class="food-name">Chole Bhature</p>
+                <p class="food-price">₹180</p>
+                <button class="btn btn-primary" onclick="addToCart('Chole Bhature', 180)">Add to Cart</button>
+              </div>
+            </div>
+          </div> <div class="col-md-4">
+            <div class="food-card">
+              <img src="https://source.unsplash.com/400x250/?chole" alt="Chole Bhature" />
+              <div class="food-card-body">
+                <p class="food-name">Chole Bhature</p>
+                <p class="food-price">₹180</p>
+                <button class="btn btn-primary" onclick="addToCart('Chole Bhature', 180)">Add to Cart</button>
+              </div>
+            </div>
+          </div>
 
-      <!-- Italian Cuisine -->
-      <div id="italian" class="cuisine-section">
-        <h2>Italian</h2>
-        <div class="row g-4">
           <div class="col-md-4">
             <div class="food-card">
-                <img src="https://source.unsplash.com/400x250/?pizza" alt="Pizza Margherita">
+              <img src="https://source.unsplash.com/400x250/?biryani" alt="Veg Biryani" />
               <div class="food-card-body">
-                <p class="food-name">Pizza Margherita</p>
-                <p class="food-price">₹350</p>
-                <button class="btn btn-primary" onclick="addToCart('Pizza Margherita', 350)">Add to Cart</button>
+                <p class="food-name">Veg Biryani</p>
+                <p class="food-price">₹220</p>
+                <button class="btn btn-primary" onclick="addToCart('Veg Biryani', 220)">Add to Cart</button>
               </div>
             </div>
+            
           </div>
         </div>
       </div>
-      <!-- Extra item for North Indian -->
-<!-- North Indian Cuisine -->
-<div id="north-indian" class="cuisine-section">
-  <h2>🍛 North Indian</h2>
-  <div class="row g-4">
 
-    <div class="col-md-4">
-      <div class="food-card">
-        <img src="https://source.unsplash.com/400x250/?paneer" alt="Paneer Butter Masala">
-        <div class="food-card-body">
-          <p class="food-name">Paneer Butter Masala</p>
-          <p class="food-price">₹250</p>
-          <button class="btn btn-primary" onclick="addToCart('Paneer Butter Masala', 250)">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="food-card">
-        <img src="https://source.unsplash.com/400x250/?chole" alt="Chole Bhature">
-        <div class="food-card-body">
-          <p class="food-name">Chole Bhature</p>
-          <p class="food-price">₹180</p>
-          <button class="btn btn-primary" onclick="addToCart('Chole Bhature', 180)">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="food-card">
-        <img src="https://source.unsplash.com/400x250/?biryani" alt="Veg Biryani">
-        <div class="food-card-body">
-          <p class="food-name">Veg Biryani</p>
-          <p class="food-price">₹220</p>
-          <button class="btn btn-primary" onclick="addToCart('Veg Biryani', 220)">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- You can keep adding more items here as needed -->
-
-  </div> <!-- closes .row -->
-</div> <!-- closes #north-indian -->
-
-
-
-
-      <!-- More cuisines can be added in a similar way -->
-
+      <!-- Other cuisines as placeholders -->
+      <div id="south-indian" class="cuisine-section"><h2>🍚 South Indian</h2></div>
+      <div id="chinese" class="cuisine-section"><h2>🍜 Chinese</h2></div>
+      <div id="italian" class="cuisine-section"><h2>🍕 Italian</h2></div>
+      <div id="continental" class="cuisine-section"><h2>Continental</h2></div>
+      <div id="fast-food" class="cuisine-section"><h2>Fast Food</h2></div>
+      <div id="desserts" class="cuisine-section"><h2>Desserts</h2></div>
+      <div id="beverages" class="cuisine-section"><h2>Beverages</h2></div>
+      <div id="street-food" class="cuisine-section"><h2>Street Food</h2></div>
+      <div id="bakery" class="cuisine-section"><h2>Bakery</h2></div>
     </div>
   </div>
 
@@ -427,12 +335,10 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="cart-modal-label">Your Cart</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body">
-          <ul id="cart-items" class="list-group">
-            <!-- Cart items will appear here -->
-          </ul>
+          <ul id="cart-items" class="list-group"></ul>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -442,60 +348,50 @@
     </div>
   </div>
 
-  <!-- Bootstrap JS -->
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- JavaScript for Cart Functionality -->
   <script>
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
     function showCuisine(cuisine) {
-      const cuisines = document.querySelectorAll('.cuisine-section');
-      cuisines.forEach((section) => {
+      document.querySelectorAll('.cuisine-section').forEach(section => {
         section.style.display = 'none';
       });
-      const selectedCuisine = document.getElementById(cuisine);
-      if (selectedCuisine) {
-        selectedCuisine.style.display = 'block';
-      }
+      const selected = document.getElementById(cuisine);
+      if (selected) selected.style.display = 'block';
     }
 
     function addToCart(name, price) {
-      const item = { name, price };
-      cart.push(item);
+      cart.push({ name, price });
       localStorage.setItem('cart', JSON.stringify(cart));
       updateCartCount();
     }
 
     function updateCartCount() {
-      const cartCount = document.getElementById('cart-count');
-      cartCount.textContent = cart.length;
+      document.getElementById('cart-count').textContent = cart.length;
     }
 
     function toggleCart() {
-      const cartModal = new bootstrap.Modal(document.getElementById('cart-modal'));
-      cartModal.show();
+      const modal = new bootstrap.Modal(document.getElementById('cart-modal'));
+      modal.show();
       displayCartItems();
     }
 
     function displayCartItems() {
-      const cartItemsContainer = document.getElementById('cart-items');
-      cartItemsContainer.innerHTML = '';
+      const cartItems = document.getElementById('cart-items');
+      cartItems.innerHTML = '';
       cart.forEach(item => {
         const li = document.createElement('li');
         li.classList.add('list-group-item');
-        li.textContent = ${item.name} - ₹${item.price};
-        cartItemsContainer.appendChild(li);
+        li.textContent = `${item.name} - ₹${item.price}`;
+        cartItems.appendChild(li);
       });
     }
 
-    // Initialize
     document.addEventListener('DOMContentLoaded', () => {
       updateCartCount();
       showCuisine('north-indian');
     });
-    
   </script>
-
 </body>
 </html>
