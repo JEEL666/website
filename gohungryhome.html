@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Go Hungry</title>
 
   <!-- Bootstrap CSS -->
@@ -25,7 +26,7 @@
     }
 
     .navbar {
-      background-color: #fc8019;
+      background-color: #ff5f5f;
       padding: 10px 30px;
       color: white;
       position: sticky;
@@ -87,17 +88,19 @@
       display: flex;
       flex-wrap: wrap;
     }
-.sidebar {
-  width: 250px;
-  background-color: #fff;
-  padding: 20px;
-  border-right: 1px solid #ddd;
-  position: fixed;
-  top: 70px; /* Matches height of your navbar */
-  left: 0;
-  bottom: 0;
-  overflow-y: auto;
-}
+
+    .sidebar {
+      width: 250px;
+      background-color: #fff;
+      padding: 20px;
+      border-right: 1px solid #ddd;
+      position: fixed;
+      top: 70px;
+      /* Matches height of your navbar */
+      left: 0;
+      bottom: 0;
+      overflow-y: auto;
+    }
 
 
     .sidebar ul {
@@ -112,21 +115,32 @@
     }
 
     .sidebar ul li:hover {
-      background-color: #fc8019;
+      background-color: #ff8c8c86;
       color: white;
       border-radius: 5px;
+    
     }
 
- .main-content {
-  margin-left: 250px; /* Same as sidebar width */
-  padding: 30px;
-  flex-grow: 1;
-}
+    .sidebar ul li.active {
+      background-color: #ff5252;
+      color: white;
+      border-radius: 5px;
+    
+     
+    }
+
+    .main-content {
+      margin-left: 250px;
+      /* Same as sidebar width */
+      padding: 30px;
+      flex-grow: 1;
+    }
 
 
     .cuisine-section {
       display: none;
     }
+
 
     .food-card {
       border-radius: 10px;
@@ -158,9 +172,10 @@
       color: #fc8019;
     }
 
- .main-content {
-  padding-bottom: 100px; /* Prevents footer overlap */
-}
+    .main-content {
+      padding-bottom: 100px;
+      /* Prevents footer overlap */
+    }
 
     @media (max-width: 768px) {
       .sidebar {
@@ -174,18 +189,50 @@
         flex-direction: column;
       }
     }
-.footer {
-  background-color: #333;
-  color: white;
-  text-align: center;
+
+    .footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-left: 250px;
+      /* Match the sidebar width */
+      width: calc(100% - 250px);
+      /* So it doesn't overflow */
+    }
+    .restaurant-block {
+  border: 1px solid #ddd;
+  border-radius: 10px;
   padding: 20px;
-  margin-left: 250px; /* Match the sidebar width */
-  width: calc(100% - 250px); /* So it doesn't overflow */
+  margin-bottom: 30px;
+  background-color: #fff8f5;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
+.restaurant-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.restaurant-header img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 15px;
+  border: 2px solid #ff5f5f;
+}
+
+.restaurant-header h4 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+}
 
   </style>
 </head>
+
 <body>
 
   <!-- Navbar -->
@@ -213,107 +260,87 @@
     <div class="sidebar">
       <h3>Cuisines</h3>
       <ul>
-        <li onclick="showCuisine('north-indian')">North Indian</li>
-        <li onclick="showCuisine('south-indian')">South Indian</li>
-        <li onclick="showCuisine('chinese')">Chinese</li>
-        <li onclick="showCuisine('italian')">Italian</li>
-        <li onclick="showCuisine('continental')">Continental</li>
-        <li onclick="showCuisine('fast-food')">Fast Food</li>
-        <li onclick="showCuisine('desserts')">Desserts</li>
-        <li onclick="showCuisine('beverages')">Beverages</li>
-        <li onclick="showCuisine('street-food')">Street Food</li>
-        <li onclick="showCuisine('bakery')">Bakery</li>
+        <li onclick="showCuisine('north-indian', this)">North Indian</li>
+        <li onclick="showCuisine('south-indian', this)">South Indian</li>
+        <li onclick="showCuisine('chinese', this)">Chinese</li>
+        <li onclick="showCuisine('italian', this)">Italian</li>
+        <li onclick="showCuisine('continental', this)">Continental</li>
+        <li onclick="showCuisine('fast-food', this)">Fast Food</li>
+        <li onclick="showCuisine('desserts', this)">Desserts</li>
+        <li onclick="showCuisine('beverages', this)">Beverages</li>
+        <li onclick="showCuisine('street-food', this)">Street Food</li>
+        <li onclick="showCuisine('bakery', this)">Bakery</li>
+
       </ul>
     </div>
 
     <div class="main-content">
       <!-- North Indian -->
-      <div id="north-indian" class="cuisine-section">
-        <h2>🍛 North Indian</h2>
-        <div class="row g-4">
-          <div class="col-md-4">
-            <div class="food-card">
-              <img src="https://source.unsplash.com/400x250/?paneer" alt="Paneer Butter Masala" />
-              <div class="food-card-body">
-                <p class="food-name">Paneer Butter Masala</p>
-                <p class="food-price">₹250</p>
-                <button class="btn btn-primary" onclick="addToCart('Paneer Butter Masala', 250)">Add to Cart</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="food-card">
-              <img src="https://source.unsplash.com/400x250/?chole" alt="Chole Bhature" />
-              <div class="food-card-body">
-                <p class="food-name">Chole Bhature</p>
-                <p class="food-price">₹180</p>
-                <button class="btn btn-primary" onclick="addToCart('Chole Bhature', 180)">Add to Cart</button>
-              </div>
-            </div>
-          </div>
-           <div class="col-md-4">
-            <div class="food-card">
-              <img src="https://source.unsplash.com/400x250/?chole" alt="Chole Bhature" />
-              <div class="food-card-body">
-                <p class="food-name">Chole Bhature</p>
-                <p class="food-price">₹180</p>
-                <button class="btn btn-primary" onclick="addToCart('Chole Bhature', 180)">Add to Cart</button>
-              </div>
-            </div>
-          </div> <div class="col-md-4">
-            <div class="food-card">
-              <img src="https://source.unsplash.com/400x250/?chole" alt="Chole Bhature" />
-              <div class="food-card-body">
-                <p class="food-name">Chole Bhature</p>
-                <p class="food-price">₹180</p>
-                <button class="btn btn-primary" onclick="addToCart('Chole Bhature', 180)">Add to Cart</button>
-              </div>
-            </div>
-          </div> <div class="col-md-4">
-            <div class="food-card">
-              <img src="https://source.unsplash.com/400x250/?chole" alt="Chole Bhature" />
-              <div class="food-card-body">
-                <p class="food-name">Chole Bhature</p>
-                <p class="food-price">₹180</p>
-                <button class="btn btn-primary" onclick="addToCart('Chole Bhature', 180)">Add to Cart</button>
-              </div>
-            </div>
-          </div> <div class="col-md-4">
-            <div class="food-card">
-              <img src="https://source.unsplash.com/400x250/?chole" alt="Chole Bhature" />
-              <div class="food-card-body">
-                <p class="food-name">Chole Bhature</p>
-                <p class="food-price">₹180</p>
-                <button class="btn btn-primary" onclick="addToCart('Chole Bhature', 180)">Add to Cart</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="food-card">
-              <img src="https://source.unsplash.com/400x250/?biryani" alt="Veg Biryani" />
-              <div class="food-card-body">
-                <p class="food-name">Veg Biryani</p>
-                <p class="food-price">₹220</p>
-                <button class="btn btn-primary" onclick="addToCart('Veg Biryani', 220)">Add to Cart</button>
-              </div>
-            </div>
-            
-          </div>
+  <div id="north-indian" class="cuisine-section">
+  <h2>🍛 North Indian</h2>
+<div class="restaurant-block">
+  <div class="restaurant-header">
+    <img src="https://source.unsplash.com/50x50/?restaurant,food" alt="Spice Hub">
+    <h4>Spice Hub</h4>
+  </div>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="food-card">
+        <img src="https://source.unsplash.com/400x250/?butter-chicken" alt="Butter Chicken" />
+        <div class="food-card-body">
+          <p class="food-name">Butter Chicken</p>
+          <p class="food-price">₹320</p>
+          <button class="btn btn-primary" onclick="addToCart('Butter Chicken', 320)">Add to Cart</button>
         </div>
       </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="food-card">
+        <img src="https://source.unsplash.com/400x250/?naan" alt="Garlic Naan" />
+        <div class="food-card-body">
+          <p class="food-name">Garlic Naan</p>
+          <p class="food-price">₹60</p>
+          <button class="btn btn-primary" onclick="addToCart('Garlic Naan', 60)">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Restaurant 1 -->
+  
+
+
 
       <!-- Other cuisines as placeholders -->
-      <div id="south-indian" class="cuisine-section"><h2>🍚 South Indian</h2></div>
-      <div id="chinese" class="cuisine-section"><h2>🍜 Chinese</h2></div>
-      <div id="italian" class="cuisine-section"><h2>🍕 Italian</h2></div>
-      <div id="continental" class="cuisine-section"><h2>Continental</h2></div>
-      <div id="fast-food" class="cuisine-section"><h2>Fast Food</h2></div>
-      <div id="desserts" class="cuisine-section"><h2>Desserts</h2></div>
-      <div id="beverages" class="cuisine-section"><h2>Beverages</h2></div>
-      <div id="street-food" class="cuisine-section"><h2>Street Food</h2></div>
-      <div id="bakery" class="cuisine-section"><h2>Bakery</h2></div>
+      <div id="south-indian" class="cuisine-section">
+        <h2>🍚 South Indian</h2>
+      </div>
+      <div id="chinese" class="cuisine-section">
+        <h2>🍜 Chinese</h2>
+      </div>
+      <div id="italian" class="cuisine-section">
+        <h2>🍕 Italian</h2>
+      </div>
+      <div id="continental" class="cuisine-section">
+        <h2>Continental</h2>
+      </div>
+      <div id="fast-food" class="cuisine-section">
+        <h2>Fast Food</h2>
+      </div>
+      <div id="desserts" class="cuisine-section">
+        <h2>Desserts</h2>
+      </div>
+      <div id="beverages" class="cuisine-section">
+        <h2>Beverages</h2>
+      </div>
+      <div id="street-food" class="cuisine-section">
+        <h2>Street Food</h2>
+      </div>
+      <div id="bakery" class="cuisine-section">
+        <h2>Bakery</h2>
+      </div>
     </div>
   </div>
 
@@ -352,14 +379,35 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
+   document.addEventListener('DOMContentLoaded', () => {
+  updateCartCount();
+  const firstMenuItem = document.querySelector('.sidebar ul li');
+  if (firstMenuItem) {
+    showCuisine('north-indian', firstMenuItem);
+  }
+});
 
-    function showCuisine(cuisine) {
+
+    function showCuisine(cuisine, el = null) {
+      // Hide all cuisine sections
       document.querySelectorAll('.cuisine-section').forEach(section => {
         section.style.display = 'none';
       });
+
+      // Show selected section
       const selected = document.getElementById(cuisine);
       if (selected) selected.style.display = 'block';
+
+      // Update active class
+      document.querySelectorAll('.sidebar ul li').forEach(li => {
+        li.classList.remove('active');
+      });
+      if (el) {
+        el.classList.add('active');
+      }
     }
+
+
 
     function addToCart(name, price) {
       cart.push({ name, price });
@@ -394,4 +442,5 @@
     });
   </script>
 </body>
+
 </html>
