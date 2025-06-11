@@ -1,136 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>log in</title>
-    <style>
-        *
-        {
-            margin: 0;
-            padding: 0;
-        }
-        .login
-        {
-            display: flexbox;
-            flex-direction: column;
-            gap: 15px;
-            padding: 20px;
-            background-color:rgba(255, 255, 255, 0.95);
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 40px 40px;
-            
-            border: 2px;
-            border-style: double;
-            border-color: rgb(255, 255, 255);
-            height: 200px;
-            width: 300;
-        }
-        body
-        {
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: Arial, sans-serif;
-            background-color: rgb(255, 115, 115);
-        }   
-        .login input
-        {   
-            background-color: rgb(255, 255, 255);
-            text-align: justify;
-            margin: 20px 20px;
-            padding-left: 30px;
-            padding-right: 30px;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            border-style: double;
-            border-radius: 4px;
-            color: #000000;
-            border-color: rgb(0, 0, 0);   
-       
-        }
-        .login input:hover
-        {
-            border-color: rgb(0, 0, 0); 
-            background-color: rgb(255, 255, 255);
-            margin: 20px 20px;
-            padding-left: 30px;
-            padding-right: 30px;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            border-style: double;
-            border-radius: 4px;
-            color: rgb(0, 0, 0);
-        }
-
-        .loginbtn
-        {
-            margin-top: 25px;
-            margin-bottom: 25px;
-            padding: 7px 30px;
-            background-color: rgb(255, 255, 255);
-            color: rgb(0, 0, 0);
-            border: 2px;
-            border-radius: 3px;
-            border-color:rgb(0, 0, 0); 
-            border-style: double;
-        }
-        .loginbtn:active
-        {
-            scale: 0.9;
-        }
-        .signup
-        {   
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-            margin-bottom: 10px;
-            margin-left: 2px;
-            margin-right: 2px;
-            color: white;
-            font-style: italic;
-            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        .signup a
-        {
-            text-decoration: none;
-            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-            color: rgb(173, 55, 55);
-            padding-left: 10px;
-            text-decoration: none;
-            font-style: normal;
-        }
-        .signup a:hover
-        {
-            text-decoration: none;
-            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-            color: rgb(0, 0, 0);
-            padding-left: 10px;
-            text-decoration: none;
-            font-style: normal;
-        }
-       
-         </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Verify OTP | Go Hungry</title>
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #fff0e6, #ffd9cc);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .container {
+      background-color: #fff;
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2rem;
+      color: #e95d2c;
+      margin-bottom: 30px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 14px;
+      font-size: 1rem;
+      border: 2px solid #e95d2c;
+      border-radius: 8px;
+      outline: none;
+      margin-bottom: 10px;
+      transition: 0.3s ease;
+      letter-spacing: 4px;
+      text-align: center;
+    }
+    input[type="text"]:focus {
+      border-color: #ff9248;
+      box-shadow: 0 0 8px rgba(255, 145, 72, 0.4);
+    }
+    input.error {
+      border-color: #ff2a2a;
+      background-color: #fff1f1;
+    }
+    .error-message {
+      color: #ff2a2a;
+      font-size: 0.85rem;
+      margin-bottom: 15px;
+      height: 18px;
+    }
+    button.verifybtn {
+      width: 100%;
+      padding: 14px;
+      font-size: 1.1rem;
+      background-color: #e95d2c;
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+    button.verifybtn:hover {
+      background-color: #ff753a;
+      transform: translateY(-2px);
+    }
+    button.verifybtn:active {
+      transform: scale(0.98);
+    }
+    .resend {
+      margin-top: 15px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+    .resend a {
+      color: #e95d2c;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .resend a:hover {
+      text-decoration: underline;
+    }
+    .otp-message {
+      margin-top: 8px;
+      font-size: 1rem;
+      color: #e95d2c;
+      font-weight: 700;
+    }
+  </style>
 </head>
 <body>
-    <form>
-        <div class="login" align="center">
-            <p>LOGIN HERE</p>
-            
-            <input type="password" id="password" name="password" placeholder="ENTER OTP" required autofocus>
-            <br>
-            <button onclick="" class="loginbtn">
-                <b>RESEND OTP</b>
-            </button>
-            <button class="loginbtn">
-              <a href="gohungryhome.html"><b> login</b></a> 
-            </button>
-        </div>   
-        <div class="signup">
-            <h5>Don't have one</h5><a href="register.html">SIGN UP</a>
-        </div>
+
+  <div class="container">
+    <h1>Enter OTP</h1>
+    <form id="otpForm" novalidate>
+      <input
+        type="text"
+        id="otpInput"
+        name="otp"
+        placeholder="Enter OTP"
+        maxlength="6"
+        required
+        autocomplete="one-time-code"
+        inputmode="numeric"
+      />
+      <div id="error" class="error-message"></div>
+      <button type="submit" class="verifybtn">Verify OTP</button>
     </form>
+
+    <p class="resend">
+      Didn't get OTP? <a id="resendLink">Resend OTP</a>
+    </p>
+    <p id="otpMessage" class="otp-message"></p>
+  </div>
+
+  <script>
+    const otpInput = document.getElementById('otpInput');
+    const errorDiv = document.getElementById('error');
+    const resendLink = document.getElementById('resendLink');
+    const otpMessage = document.getElementById('otpMessage');
+    const form = document.getElementById('otpForm');
+
+    // Get existing OTP or generate a new one
+    let sentOtp = localStorage.getItem('sentOtp') || generateOtp();
+
+    // Display the current OTP message
+    showOtpMessage(sentOtp);
+
+    // Generate and store OTP
+    function generateOtp() {
+      const otp = Math.floor(100000 + Math.random() * 900000).toString();
+      localStorage.setItem('sentOtp', otp);
+      return otp;
+    }
+
+    // Show OTP message visibly on page
+    function showOtpMessage(otp) {
+      otpMessage.textContent = `Your OTP is: ${otp}`;
+    }
+
+    // Show error message helper
+    function showError(message) {
+      errorDiv.textContent = message;
+      if (!message) otpInput.classList.remove('error');
+    }
+
+    // Resend OTP click handler
+    resendLink.addEventListener('click', () => {
+      sentOtp = generateOtp();
+      showOtpMessage(sentOtp);
+      showError('');
+      otpInput.value = '';
+      otpInput.focus();
+    });
+
+    // Form submission handler for OTP verification
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const enteredOtp = otpInput.value.trim();
+      if (!enteredOtp) {
+        showError('Please enter the OTP.');
+        otpInput.classList.add('error');
+      } else if (!/^\d{6}$/.test(enteredOtp)) {
+        showError('OTP must be 6 digits.');
+        otpInput.classList.add('error');
+      } else if (enteredOtp !== sentOtp) {
+        showError('Incorrect OTP. Please try again.');
+        otpInput.classList.add('error');
+      } else {
+        showError('');
+        otpInput.classList.remove('error');
+        alert('OTP Verified! Redirecting...');
+        localStorage.removeItem('sentOtp');
+        window.location.href = 'gohungryhome.html';
+      }
+    });
+
+    // Clear error on input
+    otpInput.addEventListener('input', () => {
+      otpInput.classList.remove('error');
+      showError('');
+    });
+  </script>
+
 </body>
 </html>
