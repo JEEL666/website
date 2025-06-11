@@ -1,140 +1,368 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>register</title>
-    <style> *
-        {
-            margin: 0;
-            padding: 0;
-        }
-        .details
-        {
-            display: flexbox;
-            flex-direction: column;
-            gap: 15px;
-            padding: 20px;
-            background-color:rgba(255, 255, 255, 0.95);
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 40px 40px;
-            
-            border: 2px;
-            border-style: double;
-            border-color: rgb(255, 255, 255);
-           
-           
-        }
-        body
-        {
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: Arial, sans-serif;
-            background-color: rgb(255, 115, 115);
-        }   
-        .details input
-        {   
-            background-color: rgb(255, 255, 255);
-            text-align: justify;
-            margin: 20px 20px;
-            padding-left: 30px;
-            padding-right: 30px;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            border-style: double;
-            border-radius: 4px;
-            color: #000000;
-            border-color: rgb(0, 0, 0);   
-       
-        }
-        .details input:hover
-        {
-            border-color: rgb(0, 0, 0); 
-            background-color: rgb(255, 255, 255);
-            margin: 20px 20px;
-            padding-left: 30px;
-            padding-right: 30px;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            border-style: double;
-            border-radius: 4px;
-            color: rgb(0, 0, 0);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register | Go Hungry</title>
+  <style>
+    :root {
+      --bg-gradient: linear-gradient(135deg, #ff7e5f, #feb47b);
+      --primary-color: #ff5722;
+      --light-bg: #fff;
+      --light-text: #333;
+      --dark-bg: #121212;
+      --dark-card: #1e1e1e;
+      --dark-text: #f0f0f0;
+      --input-border: #ffd1b3;
+      --input-focus-bg: #fff7f2;
+    }
 
-        .loginbtn1
-        {
-            margin-left: 20px;
-            margin-right: 15px;
-            margin-top: 25px;
-            margin-bottom: 25px;
-            padding: 7px 30px;
-            background-color: rgb(255, 255, 255);
-            color: rgb(0, 0, 0);
-            border: 2px;
-            border-radius: 3px;
-            border-color:rgb(0, 0, 0); 
-            border-style: double;
-        }
-        .loginbtn1:active
-        {
-            scale: 0.9;
-        }
-       
-        .loginbtn1 a{
-            display: inline-block;
-          
-            text-decoration: none;
-            color: rgb(65, 23, 23);
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-        }
-        
-        .loginbtn2
-        {
-            margin-left: 20px;
-            margin-right: 15px;
-            margin-top: 25px;
-            margin-bottom: 25px;
-            padding: 7px 30px;
-            background-color: rgb(255, 255, 255);
-            color: rgb(0, 0, 0);
-            border: 2px;
-            border-radius: 3px;
-            border-color:rgb(0, 0, 0); 
-            border-style: double;
-        }
-        .loginbtn2:active
-        {
-            scale: 0.9;
-        }
-       
-        .loginbtn2 a{
-            display: inline-block;
-          
-            text-decoration: none;
-            color: rgb(65, 23, 23);
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-        }
-        </style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      background: var(--bg-gradient);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      transition: background 0.3s ease;
+    }
+
+    .form-container {
+      background-color: var(--light-bg);
+      color: var(--light-text);
+      border-radius: 12px;
+      padding: 40px 30px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .form-container.dark {
+      background-color: var(--dark-card);
+      color: var(--dark-text);
+    }
+
+    .form-container h2 {
+      margin-bottom: 30px;
+      color: var(--primary-color);
+    }
+
+    .form-container label {
+      display: block;
+      text-align: left;
+      font-weight: bold;
+      margin: 5px 0 5px 5px;
+    }
+
+    .form-container input[type="text"],
+    .form-container input[type="email"],
+    .form-container input[type="tel"],
+    .form-container input[type="number"] {
+      width: 100%;
+      padding: 14px 16px;
+      margin-bottom: 15px;
+      border: 2px solid var(--input-border);
+      border-radius: 8px;
+      font-size: 1rem;
+      outline: none;
+      transition: 0.3s ease;
+    }
+
+    .form-container input:focus {
+      border-color: var(--primary-color);
+      background-color: var(--input-focus-bg);
+    }
+
+    .form-container input[type="checkbox"] {
+      margin-right: 8px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px 0;
+      border: none;
+      border-radius: 25px;
+      background-color: var(--primary-color);
+      color: #fff;
+      font-size: 1.05rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: 0.3s ease;
+      user-select: none;
+    }
+
+    .btn.send-otp {
+      margin-bottom: 20px;
+    }
+
+    .btn:hover {
+      background-color: #e64a19;
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--primary-color);
+      border: 2px solid var(--primary-color);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--primary-color);
+      color: #fff;
+    }
+
+    .resend {
+      margin-top: 15px;
+      font-style: italic;
+      font-size: 0.9rem;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    .success {
+      color: green;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    /* 🌙 Dark mode switch */
+    .dark-mode-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+      font-weight: bold;
+      z-index: 10;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 48px;
+      height: 24px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      background-color: #ccc;
+      border-radius: 34px;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transition: 0.4s;
+    }
+
+    .slider:before {
+      content: "";
+      position: absolute;
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      border-radius: 50%;
+      transition: 0.4s;
+    }
+
+    input:checked + .slider {
+      background-color: var(--primary-color);
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(24px);
+    }
+
+    .slider.round {
+      border-radius: 34px;
+    }
+  </style>
 </head>
 <body>
-    <form>
-        <div class="details">
-            <input type="text"  id="name" placeholder="ENTER NAME"><br>
-            <input type="text" name="" id="address" placeholder="ADDRESS"><br>
-            <input type="text" name="" id="mno" placeholder="MOBILE NUMBER"><br>
-        <input type="text"  id="otp" placeholder="ENTER OTP"><br>
 
-            <button class="loginbtn1">
-                <a href="">SEND OTP</a>  
-            </button>
-            <button class="loginbtn2">
-                <a href="gohungryhome.html">register</a>
-            </button><br>
-             <i>resend otp</i> 
-        </div>
+  <!-- 🌙 Toggle Switch -->
+  <div class="dark-mode-toggle">
+    <label class="switch">
+      <input type="checkbox" id="darkModeSwitch" onchange="toggleDarkMode()" />
+      <span class="slider round"></span>
+    </label>
+    <span id="modeLabel">🌙 Dark Mode</span>
+  </div>
+
+  <div class="form-container" id="formBox">
+    <h2>Register</h2>
+   <form id="registrationForm" onsubmit="return submitRegistration(event)">
+
+
+      <div id="error-message" class="error"></div>
+      <div id="success-message" class="success"></div>
+
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your Name" autocomplete="name" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Enter your Gmail" autocomplete="email"
+        required pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$" title="Please enter a valid Gmail address" />
+
+      <label for="address">Address</label>
+      <input type="text" id="address" name="address" placeholder="Enter your Address" autocomplete="street-address" required />
+
+      <label for="mno">Mobile Number</label>
+      <input type="tel" id="mno" name="mno" placeholder="Enter Mobile Number" autocomplete="tel"
+        pattern="[0-9]{10}" title="10-digit mobile number" required />
+
+      <button type="button" class="btn send-otp" onclick="sendOtp()">Send OTP</button>
+
+      <label for="otp">OTP</label>
+      <input type="text" id="otp" name="otp" placeholder="Enter OTP" required />
+
+      <div style="text-align: left; margin: 10px 0;">
+        <input type="checkbox" id="terms" required />
+        <label for="terms">I agree to the <a href="#" target="_blank">Terms & Conditions</a></label>
+      </div>
+
+      <button type="submit" class="btn btn-outline">Register</button>
     </form>
+
+    <p class="resend">Didn't receive OTP? <a href="#" onclick="resendOtp()">Resend</a></p>
+  </div>
+
+  <script>
+    let generatedOtp = '';
+    let darkMode = false;
+
+    function sendOtp() {
+      const mobile = document.getElementById('mno').value.trim();
+      if (mobile.match(/^\d{10}$/)) {
+        generatedOtp = (Math.floor(1000 + Math.random() * 9000)).toString();
+        alert(`OTP Sent! Your OTP is: ${generatedOtp}`);
+        showSuccess('OTP sent successfully.');
+      } else {
+        displayError('Please enter a valid 10-digit mobile number before sending OTP.');
+      }
+    }
+
+    function resendOtp() {
+      sendOtp();
+    }
+
+    function validateForm() {
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const address = document.getElementById('address').value.trim();
+      const mobile = document.getElementById('mno').value.trim();
+      const otp = document.getElementById('otp').value.trim();
+      const terms = document.getElementById('terms').checked;
+      const gmailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+
+      if (!name || !email || !address || !mobile || !otp) {
+        displayError('All fields are required.');
+        return false;
+      }
+
+      if (!gmailRegex.test(email)) {
+        displayError('Email must be a valid Gmail address.');
+        return false;
+      }
+
+      if (!mobile.match(/^\d{10}$/)) {
+        displayError('Mobile number must be a 10-digit number.');
+        return false;
+      }
+
+      if (otp.length < 4 || otp.length > 6 || !otp.match(/^\d+$/)) {
+        displayError('Please enter a valid numeric OTP (4-6 digits).');
+        return false;
+      }
+
+      if (otp !== generatedOtp) {
+        displayError('Incorrect OTP. Please try again.');
+        return false;
+      }
+
+      if (!terms) {
+        displayError('You must agree to the Terms & Conditions.');
+        return false;
+      }
+
+      clearMessages();
+      return true;
+    }
+
+    function displayError(message) {
+      document.getElementById('error-message').innerText = message;
+      document.getElementById('success-message').innerText = '';
+    }
+
+    function showSuccess(message) {
+      document.getElementById('success-message').innerText = message;
+      document.getElementById('error-message').innerText = '';
+    }
+function submitRegistration(e) {
+  e.preventDefault();
+
+  clearMessages();
+
+  const form = document.getElementById('registrationForm');
+  const formData = new FormData(form);
+
+  fetch('register.php', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.error) {
+      displayError(data.error);
+    } else {
+      showSuccess(data.message);
+      form.reset();
+    }
+  })
+  .catch(error => {
+    displayError('Network error: ' + error.message);
+  });
+
+  return false;
+}
+
+    function clearMessages() {
+      document.getElementById('error-message').innerText = '';
+      document.getElementById('success-message').innerText = '';
+    }
+
+    function toggleDarkMode() {
+      darkMode = !darkMode;
+      document.getElementById('formBox').classList.toggle('dark', darkMode);
+      document.body.style.background = darkMode ? '#121212' : 'var(--bg-gradient)';
+      document.getElementById('modeLabel').textContent = darkMode ? '☀️ Light Mode' : '🌙 Dark Mode';
+    }
+  </script>
+
 </body>
 </html>
