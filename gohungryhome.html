@@ -235,25 +235,27 @@
 
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg">
-    <div class="container-fluid d-flex justify-content-between align-items-center">
-      <a class="navbar-brand" href="#">Go Hungry</a>
-      <div class="d-flex align-items-center">
-        <div class="search-bar">
-          <input type="text" placeholder="Search" />
-          <i class="bi bi-search"></i>
-        </div>
-        <div class="cart-icon" onclick="toggleCart()">
-          <i class="bi bi-cart"></i>
-          <span id="cart-count" class="badge">0</span>
-        </div>
-        <div class="account-logo ms-3">
-          <i class="bi bi-person-circle"></i>
-        </div>
+
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+    <a class="navbar-brand" href="#">Go Hungry</a>
+    <div class="d-flex align-items-center">
+      <div class="search-bar">
+        <input type="text" placeholder="Search" />
+        <i class="bi bi-search"></i>
+      </div>
+<a href="cart.html" id="cart-button" aria-label="View Cart" style="color: white; font-size: 1.5rem; margin-left: 15px;">
+  <i class="bi bi-cart"></i>
+</a>
+
+
+      <div class="account-logo ms-3">
+        <i class="bi bi-person-circle"></i>
       </div>
     </div>
-  </nav>
+  </div>
+</nav>
+
 
   <!-- Page Content -->
   <div class="page-content">
@@ -274,75 +276,330 @@
       </ul>
     </div>
 
-    <div class="main-content">
-      <!-- North Indian -->
-  <div id="north-indian" class="cuisine-section">
+<div class="main-content">
+ <!-- Replace everything inside your <div class="main-content"> with this -->
+
+<div id="north-indian" class="cuisine-section">
   <h2>🍛 North Indian</h2>
-<div class="restaurant-block">
-  <div class="restaurant-header">
-    <img src="https://source.unsplash.com/50x50/?restaurant,food" alt="Spice Hub">
-    <h4>Spice Hub</h4>
-  </div>
-  <div class="row g-4">
-    <div class="col-md-4">
-      <div class="food-card">
-        <img src="https://source.unsplash.com/400x250/?butter-chicken" alt="Butter Chicken" />
-        <div class="food-card-body">
-          <p class="food-name">Butter Chicken</p>
-          <p class="food-price">₹320</p>
-          <button class="btn btn-primary" onclick="addToCart('Butter Chicken', 320)">Add to Cart</button>
+  <div class="restaurant-block">
+    <div class="restaurant-header">
+      <img src="https://source.unsplash.com/50x50/?restaurant,food" alt="Spice Hub">
+      <h4>Spice Hub</h4>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="food-card">
+          <img src="https://source.unsplash.com/400x250/?butter-chicken" alt="Butter Chicken" />
+          <div class="food-card-body">
+            <p class="food-name">Butter Chicken</p>
+            <p class="food-price">₹320</p>
+            <button class="btn btn-primary" onclick="addToCart('Butter Chicken', 320)">Add to Cart</button>
+          </div>
         </div>
       </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="food-card">
-        <img src="https://source.unsplash.com/400x250/?naan" alt="Garlic Naan" />
-        <div class="food-card-body">
-          <p class="food-name">Garlic Naan</p>
-          <p class="food-price">₹60</p>
-          <button class="btn btn-primary" onclick="addToCart('Garlic Naan', 60)">Add to Cart</button>
+      <div class="col-md-4">
+        <div class="food-card">
+          <img src="https://source.unsplash.com/400x250/?naan" alt="Garlic Naan" />
+          <div class="food-card-body">
+            <p class="food-name">Garlic Naan</p>
+            <p class="food-price">₹60</p>
+            <button class="btn btn-primary" onclick="addToCart('Garlic Naan', 60)">Add to Cart</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-  <!-- Restaurant 1 -->
-  
-
-
-
-      <!-- Other cuisines as placeholders -->
-      <div id="south-indian" class="cuisine-section">
-        <h2>🍚 South Indian</h2>
+<div id="south-indian" class="cuisine-section">
+  <h2>🍚 South Indian</h2>
+  <div class="restaurant-block">
+    <div class="restaurant-header">
+      <img src="https://source.unsplash.com/50x50/?dosa" alt="Southern Delight">
+      <h4>Southern Delight</h4>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="food-card">
+          <img src="https://source.unsplash.com/400x250/?dosa" alt="Masala Dosa" />
+          <div class="food-card-body">
+            <p class="food-name">Masala Dosa</p>
+            <p class="food-price">₹120</p>
+            <button class="btn btn-primary" onclick="addToCart('Masala Dosa', 120)">Add to Cart</button>
+          </div>
+        </div>
       </div>
-      <div id="chinese" class="cuisine-section">
-        <h2>🍜 Chinese</h2>
-      </div>
-      <div id="italian" class="cuisine-section">
-        <h2>🍕 Italian</h2>
-      </div>
-      <div id="continental" class="cuisine-section">
-        <h2>Continental</h2>
-      </div>
-      <div id="fast-food" class="cuisine-section">
-        <h2>Fast Food</h2>
-      </div>
-      <div id="desserts" class="cuisine-section">
-        <h2>Desserts</h2>
-      </div>
-      <div id="beverages" class="cuisine-section">
-        <h2>Beverages</h2>
-      </div>
-      <div id="street-food" class="cuisine-section">
-        <h2>Street Food</h2>
-      </div>
-      <div id="bakery" class="cuisine-section">
-        <h2>Bakery</h2>
+      <div class="col-md-4">
+        <div class="food-card">
+          <img src="https://source.unsplash.com/400x250/?idli" alt="Idli" />
+          <div class="food-card-body">
+            <p class="food-name">Idli</p>
+            <p class="food-price">₹80</p>
+            <button class="btn btn-primary" onclick="addToCart('Idli', 80)">Add to Cart</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+</div>
+
+<div id="chinese" class="cuisine-section">
+  <h2>🍜 Chinese</h2>
+  <div class="restaurant-block">
+    <div class="restaurant-header">
+      <img src="https://source.unsplash.com/50x50/?chinese-food" alt="Dragon Wok">
+      <h4>Dragon Wok</h4>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="food-card">
+          <img src="https://source.unsplash.com/400x250/?fried-rice" alt="Fried Rice" />
+          <div class="food-card-body">
+            <p class="food-name">Fried Rice</p>
+            <p class="food-price">₹150</p>
+            <button class="btn btn-primary" onclick="addToCart('Fried Rice', 150)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="food-card">
+          <img src="https://source.unsplash.com/400x250/?chow-mein" alt="Chow Mein" />
+          <div class="food-card-body">
+            <p class="food-name">Chow Mein</p>
+            <p class="food-price">₹140</p>
+            <button class="btn btn-primary" onclick="addToCart('Chow Mein', 140)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="italian" class="cuisine-section">
+  <h2>🍕 Italian</h2>
+  <div class="restaurant-block">
+    <div class="restaurant-header">
+      <img src="https://source.unsplash.com/50x50/?italian-restaurant" alt="Pasta Palace">
+      <h4>Pasta Palace</h4>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="food-card">
+          <img src="https://source.unsplash.com/400x250/?pizza" alt="Margherita Pizza" />
+          <div class="food-card-body">
+            <p class="food-name">Margherita Pizza</p>
+            <p class="food-price">₹250</p>
+            <button class="btn btn-primary" onclick="addToCart('Margherita Pizza', 250)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="food-card">
+          <img src="https://source.unsplash.com/400x250/?pasta" alt="Pasta Alfredo" />
+          <div class="food-card-body">
+            <p class="food-name">Pasta Alfredo</p>
+            <p class="food-price">₹300</p>
+            <button class="btn btn-primary" onclick="addToCart('Pasta Alfredo', 300)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="continental" class="cuisine-section">
+  <h2>Continental</h2>
+  <div class="restaurant-block">
+    <div class="restaurant-header">
+      <img src="https://source.unsplash.com/50x50/?continental-food" alt="Continental Treats">
+      <h4>Continental Treats</h4>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="food-card">
+          <img src="https://source.unsplash.com/400x250/?steak" alt="Grilled Steak" />
+          <div class="food-card-body">
+            <p class="food-name">Grilled Steak</p>
+            <p class="food-price">₹500</p>
+            <button class="btn btn-primary" onclick="addToCart('Grilled Steak', 500)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="food-card">
+          <img src="https://source.unsplash.com/400x250/?salad" alt="Caesar Salad" />
+          <div class="food-card-body">
+            <p class="food-name">Caesar Salad</p>
+            <p class="food-price">₹250</p>
+            <button class="btn btn-primary" onclick="addToCart('Caesar Salad', 250)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="fast-food" class="cuisine-section">
+  <h2>Fast Food</h2>
+  <div class="restaurant-block">
+    <div class="restaurant-header">
+      <img src="https://source.unsplash.com/50x50/?fast-food" alt="Burger Barn">
+      <h4>Burger Barn</h4>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="food-card">
+          <img src="https://source.unsplash.com/400x250/?burger" alt="Cheeseburger" />
+          <div class="food-card-body">
+            <p class="food-name">Cheeseburger</p>
+            <p class="food-price">₹180</p>
+            <button class="btn btn-primary" onclick="addToCart('Cheeseburger', 180)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="food-card">
+          <img src="https://source.unsplash.com/400x250/?fries" alt="French Fries" />
+          <div class="food-card-body">
+            <p class="food-name">French Fries</p>
+            <p class="food-price">₹90</p>
+            <button class="btn btn-primary" onclick="addToCart('French Fries', 90)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="desserts" class="cuisine-section">
+  <h2>Desserts</h2>
+  <div class="restaurant-block">
+    <div class="restaurant-header">
+      <img src="https://source.unsplash.com/50x50/?dessert" alt="Sweet Tooth">
+      <h4>Sweet Tooth</h4>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="food-card">
+          <img src="https://source.unsplash.com/400x250/?cake" alt="Chocolate Cake" />
+          <div class="food-card-body">
+            <p class="food-name">Chocolate Cake</p>
+            <p class="food-price">₹150</p>
+            <button class="btn btn-primary" onclick="addToCart('Chocolate Cake', 150)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="food-card">
+          <img src="https://source.unsplash.com/400x250/?ice-cream" alt="Vanilla Ice Cream" />
+          <div class="food-card-body">
+            <p class="food-name">Vanilla Ice Cream</p>
+            <p class="food-price">₹100</p>
+            <button class="btn btn-primary" onclick="addToCart('Vanilla Ice Cream', 100)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="beverages" class="cuisine-section">
+  <h2>Beverages</h2>
+  <div class="restaurant-block">
+    <div class="restaurant-header">
+      <img src="https://source.unsplash.com/50x50/?coffee" alt="Coffee Corner">
+      <h4>Coffee Corner</h4>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="food-card">
+          <img src="https://source.unsplash.com/400x250/?coffee" alt="Cappuccino" />
+          <div class="food-card-body">
+            <p class="food-name">Cappuccino</p>
+            <p class="food-price">₹120</p>
+            <button class="btn btn-primary" onclick="addToCart('Cappuccino', 120)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="food-card">
+          <img src="https://source.unsplash.com/400x250/?juice" alt="Fresh Orange Juice" />
+          <div class="food-card-body">
+            <p class="food-name">Fresh Orange Juice</p>
+            <p class="food-price">₹90</p>
+            <button class="btn btn-primary" onclick="addToCart('Fresh Orange Juice', 90)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="street-food" class="cuisine-section">
+  <h2>Street Food</h2>
+  <div class="restaurant-block">
+    <div class="restaurant-header">
+      <img src="https://source.unsplash.com/50x50/?street-food" alt="Street Bites">
+      <h4>Street Bites</h4>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="food-card">
+          <img src="https://source.unsplash.com/400x250/?pani-puri" alt="Pani Puri" />
+          <div class="food-card-body">
+            <p class="food-name">Pani Puri</p>
+            <p class="food-price">₹50</p>
+            <button class="btn btn-primary" onclick="addToCart('Pani Puri', 50)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="food-card">
+          <img src="https://source.unsplash.com/400x250/?chaat" alt="Aloo Chaat" />
+          <div class="food-card-body">
+            <p class="food-name">Aloo Chaat</p>
+            <p class="food-price">₹60</p>
+            <button class="btn btn-primary" onclick="addToCart('Aloo Chaat', 60)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="bakery" class="cuisine-section">
+  <h2>Bakery</h2>
+  <div class="restaurant-block">
+    <div class="restaurant-header">
+      <img src="https://source.unsplash.com/50x50/?bakery" alt="Bake House">
+      <h4>Bake House</h4>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="food-card">
+          <img src="https://source.unsplash.com/400x250/?bread" alt="Fresh Bread" />
+          <div class="food-card-body">
+            <p class="food-name">Fresh Bread</p>
+            <p class="food-price">₹80</p>
+            <button class="btn btn-primary" onclick="addToCart('Fresh Bread', 80)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="food-card">
+          <img src="https://source.unsplash.com/400x250/?cake" alt="Cupcake" />
+          <div class="food-card-body">
+            <p class="food-name">Cupcake</p>
+            <p class="food-price">₹70</p>
+            <button class="btn btn-primary" onclick="addToCart('Cupcake', 70)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
 
   <!-- Footer -->
   <footer class="footer">
@@ -378,15 +635,46 @@
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <script>
+    function addToCart(restaurant, name, price, image) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  // Check if item already exists with same restaurant & name, then increase quantity
+  const existingIndex = cart.findIndex(i => i.name === name && i.restaurant === restaurant);
+  if (existingIndex !== -1) {
+    cart[existingIndex].quantity += 1;
+  } else {
+    cart.push({
+      restaurant,
+      name,
+      price: Number(price),
+      image,
+      quantity: 1
+    });
+  }
+
+  localStorage.setItem('cart', JSON.stringify(cart));
+  // Optionally update cart count on your main page here
+}
+
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
-   document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', () => {
   updateCartCount();
   const firstMenuItem = document.querySelector('.sidebar ul li');
   if (firstMenuItem) {
     showCuisine('north-indian', firstMenuItem);
+  } else {
+    showCuisine('north-indian');
   }
 });
 
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const cartBadge = document.querySelector('.cart-icon .badge');
+  if (cartBadge) {
+    cartBadge.textContent = totalItems;
+  }
+}
 
     function showCuisine(cuisine, el = null) {
       // Hide all cuisine sections
@@ -406,36 +694,6 @@
         el.classList.add('active');
       }
     }
-
-
-
-    function addToCart(name, price) {
-      cart.push({ name, price });
-      localStorage.setItem('cart', JSON.stringify(cart));
-      updateCartCount();
-    }
-
-    function updateCartCount() {
-      document.getElementById('cart-count').textContent = cart.length;
-    }
-
-    function toggleCart() {
-      const modal = new bootstrap.Modal(document.getElementById('cart-modal'));
-      modal.show();
-      displayCartItems();
-    }
-
-    function displayCartItems() {
-      const cartItems = document.getElementById('cart-items');
-      cartItems.innerHTML = '';
-      cart.forEach(item => {
-        const li = document.createElement('li');
-        li.classList.add('list-group-item');
-        li.textContent = `${item.name} - ₹${item.price}`;
-        cartItems.appendChild(li);
-      });
-    }
-
     document.addEventListener('DOMContentLoaded', () => {
       updateCartCount();
       showCuisine('north-indian');
